@@ -53,6 +53,7 @@ const services = [
           <h3>
             <a :href="project.url" target="_blank" rel="noopener">{{ project.name }}</a>
           </h3>
+          <p v-if="project.inDevelopment" class="badge">En développement</p>
           <p>{{ project.description }}</p>
         </li>
       </ul>

@@ -39,21 +39,27 @@ export const site = {
   },
 
   // Sites édités et exploités par Sd-Edition (page d'accueil, section « Nos sites »).
+  // `inDevelopment: true` affiche la mention « En développement ».
   projects: [
     {
       name: 'VoxLiber',
       url: 'https://voxliber.sd-edition.fr',
-      description: 'À COMPLÉTER',
+      description:
+        'Écrivez vos mémoires ou une histoire originale, au clavier ou par dictée, sur ordinateur comme sur mobile.',
     },
     {
       name: 'MyRefereeExperience',
       url: 'https://myrefereeexperience.sd-edition.fr',
-      description: 'À COMPLÉTER',
+      description:
+        "Apprenez les règles du football de façon interactive : de courts modules suivis d'un questionnaire rapide.",
+      inDevelopment: true,
     },
     {
       name: 'EquiCompetManager',
       url: 'https://ecm.sd-edition.fr',
-      description: 'À COMPLÉTER',
+      description:
+        'Gestion des compétitions équestres, de la création de la compétition aux inscriptions, à la saisie des résultats et aux classements.',
+      inDevelopment: true,
     },
   ],
 

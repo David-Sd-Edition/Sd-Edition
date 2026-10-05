@@ -53,6 +53,7 @@ a:hover { color: var(--color-accent-dark); }
 .card { background: var(--color-bg); border: 1px solid var(--color-border); border-top: 3px solid var(--color-accent); border-radius: var(--radius); padding: 1.5rem; }
 .card h3 { margin: 0 0 0.5rem; }
 .card p { margin: 0; color: var(--color-muted); }
+.card .badge { display: inline-block; margin: 0 0 0.6rem; padding: 0.15rem 0.6rem; border-radius: 999px; background: #e6f2dc; color: #2f6a12; font-size: 0.8rem; font-weight: 600; }
 
 .legal h2 { margin-top: 2.25rem; font-size: 1.3rem; }
 .contact-line { margin: 1.5rem 0; }
