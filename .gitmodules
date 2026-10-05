@@ -1,0 +1,5 @@
+[submodule "sd-edition-infra"]
+	path = sd-edition-infra
+	url = https://github.com/David-Sd-Edition/sd-edition-infra.git
+	branch = main
+	update = merge

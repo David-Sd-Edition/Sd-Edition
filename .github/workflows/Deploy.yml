@@ -1,0 +1,71 @@
+name: Deploy Prod Site
+
+# Site vitrine sans staging : chaque push sur Master est mis en ligne.
+on:
+  push:
+    branches:
+      - Master
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-prod
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Vérifier src/site.config.ts (mentions légales complètes)
+        run: npm run check:config
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build (vérification des types + Vite)
+        run: npm run build
+
+      # SECRETS_PROD : lignes CLÉ=valeur (FTP_HOST, FTP_PORT, FTP_USER, FTP_PASS, FTP_SITE_DIR).
+      - name: Extraire les identifiants FTP depuis SECRETS_PROD
+        shell: bash
+        run: |
+          missing=0
+          while IFS='=' read -r key value; do
+            key="$(printf '%s' "$key" | tr -d '\r' | xargs)"
+            value="$(printf '%s' "$value" | tr -d '\r')"
+            [ -z "$key" ] && continue
+            if [ "$key" = "FTP_SITE_DIR" ]; then
+              case "$value" in */) ;; *) value="$value/" ;; esac
+            fi
+            echo "::add-mask::$value"
+            echo "$key=$value" >> "$GITHUB_ENV"
+          done <<< "${{ secrets.SECRETS_PROD }}"
+          for VAR in FTP_HOST FTP_PORT FTP_USER FTP_PASS FTP_SITE_DIR; do
+            if ! grep -q "^${VAR}=." "$GITHUB_ENV"; then
+              echo "::error::Variable ${VAR} absente ou vide dans le secret SECRETS_PROD"
+              missing=1
+            fi
+          done
+          exit $missing
+
+      # Pas de dangerous-clean-slate : le dossier du domaine peut contenir d'autres éléments
+      # (.well-known pour le certificat SSL, dossiers de sous-domaines…). Seuls les fichiers
+      # envoyés par ce workflow (fichier d'état) sont mis à jour ou supprimés.
+      - name: Deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ env.FTP_HOST }}
+          username: ${{ env.FTP_USER }}
+          password: ${{ env.FTP_PASS }}
+          port: ${{ env.FTP_PORT }}
+          local-dir: ./dist/
+          server-dir: ${{ env.FTP_SITE_DIR }}
+          state-name: .ftp-deploy-sync-state-site.json

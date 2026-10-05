@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [],
+    "deny": [
+      "Read(~/Documents/Workspace/EquiCompetManager/**)",
+      "Edit(~/Documents/Workspace/EquiCompetManager/**)",
+      "Read(~/Documents/Workspace/MyRefereeExperience/**)",
+      "Edit(~/Documents/Workspace/MyRefereeExperience/**)",
+      "Read(~/Documents/Workspace/VoxLiber/**)",
+      "Edit(~/Documents/Workspace/VoxLiber/**)",
+      "Edit(~/Documents/Workspace/sd-edition-infra/**)"
+    ]
+  },
+  "enabledPlugins": {
+    "sd-edition@sd-edition-infra": true
+  },
+  "extraKnownMarketplaces": {
+    "sd-edition-infra": {
+      "source": {
+        "source": "github",
+        "repo": "David-Sd-Edition/sd-edition-infra"
+      }
+    }
+  }
+}

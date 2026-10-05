@@ -1,0 +1,18 @@
+# Visualisation du site en local : serveur de dev Vite (rechargement à chaud).
+# Port hôte 8084 : 80, 8081, 8082 et 8083 sont déjà pris par les fronts des autres projets.
+services:
+  front:
+    image: node:24-alpine
+    container_name: sd_edition_front
+    working_dir: /app
+    command: sh -c "npm ci && npm run dev -- --host 0.0.0.0 --port 5173"
+    environment:
+      # Montage Windows : les événements fichiers ne traversent pas, on passe en polling.
+      CHOKIDAR_USEPOLLING: "true"
+    volumes:
+      - ./:/app
+      # node_modules du conteneur (Linux), distinct de celui de l'hôte (Windows).
+      - /app/node_modules
+    ports:
+      - "8084:5173"
+    restart: unless-stopped
