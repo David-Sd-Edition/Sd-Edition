@@ -11,11 +11,11 @@ export const site = {
   // Entrepreneur individuel : le nom et le prénom doivent apparaître, suivis de la mention
   // « EI » (loi du 14 février 2022). Le nom commercial ne les remplace pas.
   owner: {
-    firstName: 'À COMPLÉTER',
-    lastName: 'À COMPLÉTER',
+    firstName: 'David',
+    lastName: 'Vallade',
     // Adresse de l'établissement (ou adresse de domiciliation déclarée).
-    address: 'À COMPLÉTER',
-    siret: 'À COMPLÉTER',
+    address: '7 Le Brillet, 35290 Saint-Onen-la-Chapelle, France',
+    siret: '984 487 116 00019',
     // Ligne d'immatriculation telle qu'elle figure sur l'avis de situation (ex. « Immatriculé au
     // RNE »). Laisser vide pour ne pas l'afficher.
     registration: '',
@@ -24,7 +24,7 @@ export const site = {
   },
 
   contact: {
-    email: 'À COMPLÉTER',
+    email: 'contact@sd-edition.fr',
     // Laisser vide pour ne pas afficher de téléphone.
     phone: '',
   },

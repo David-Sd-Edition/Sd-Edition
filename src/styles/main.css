@@ -38,7 +38,9 @@ a:hover { color: var(--color-accent-dark); }
 .site-header nav a { text-decoration: none; font-weight: 500; color: #fff; }
 .site-header nav a:hover { color: #f5a06e; }
 
-.hero { background: linear-gradient(135deg, var(--color-primary-light), var(--color-primary) 70%); color: #fff; padding: 5rem 0 4.5rem; }
+.hero { background: linear-gradient(135deg, var(--color-primary-light), var(--color-primary) 70%); color: #fff; padding: 5rem 0 4.5rem; position: relative; overflow: hidden; }
+.hero::after { content: ''; position: absolute; right: max(-40px, calc(50% - var(--max-width) / 2)); top: 50%; width: min(48vw, 400px); aspect-ratio: 1; transform: translateY(-50%) rotate(-8deg); background: url('../assets/logo-filigrane.svg') center / contain no-repeat; pointer-events: none; }
+.hero .container { position: relative; z-index: 1; }
 .hero h1 { color: #fff; font-size: clamp(2.2rem, 6vw, 3.5rem); margin: 0 0 1rem; }
 .hero__lead { font-size: 1.2rem; max-width: 640px; margin: 0 0 2rem; opacity: 0.95; }
 
