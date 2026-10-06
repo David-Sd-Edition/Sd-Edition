@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" fill="none">
+  <!-- Filigrane du bandeau d'accueil : reprise du logo, cadre orange et vert, « SD » blanc ; opacités réglées ici. -->
+  <g stroke-opacity="0.3" stroke-width="26" stroke-linejoin="miter">
+    <!-- Cadre gauche et bas (orange) -->
+    <path stroke="#e8662a" d="M100 30 H40 V180 M40 300 V440 H390" />
+    <!-- Cadre haut et droite (vert) -->
+    <path stroke="#5aa52a" d="M150 30 H460 V300 M460 370 V440 H420" />
+  </g>
+  <text x="250" y="365" fill="#fff" fill-opacity="0.08" font-family="Arial, Helvetica, sans-serif" font-size="290" font-weight="700" text-anchor="middle" letter-spacing="-8">SD</text>
+</svg>

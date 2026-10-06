@@ -20,15 +20,15 @@ services tiers. Il remplace l'ancien site WordPress de `sd-edition.fr` hébergé
 
 ## Branches et déploiement (exception aux conventions communes)
 
-Ce projet n'a ni staging ni Pull Request (site vitrine, décision de l'utilisateur). Les §2 et §4
+Ce projet n'a pas de staging (site vitrine, décision de l'utilisateur). Les §2 et §4
 de `sd-edition-infra/docs/guides/conventions-git-github.md` ne s'appliquent pas ici. Deux
 branches :
 
-- `Develop` : branche de travail, **uniquement locale**. Jamais poussée sur GitHub, aucun
-  workflow ne s'y déclenche. Les commits s'y font à la demande de l'utilisateur.
+- `Develop` : branche de travail, poussée sur GitHub. Aucun workflow ne s'y déclenche. Les
+  commits et les push s'y font à la demande de l'utilisateur.
 - `Master` : production. Vérification en local (`docker compose up -d`, `npm run dev` ou
-  `npm run build && npm run preview`), puis, à la demande de l'utilisateur :
-  `git checkout Master`, `git merge --ff-only Develop`, `git push`, et retour sur `Develop`.
+  `npm run build && npm run preview`), puis, à la demande de l'utilisateur : push de `Develop`
+  et Pull Request `Develop` → `Master`. La fusion de la PR déclenche le déploiement.
   Pas de commit direct sur `Master`.
 - Push sur `Master` → `.github/workflows/Deploy.yml` : contrôle de `site.config.ts`, build, envoi
   FTP dans le dossier racine du domaine. Pas de `dangerous-clean-slate` : le dossier peut contenir
@@ -46,7 +46,7 @@ branches :
 | Dossier tests backend | aucun |
 | Dossier tests frontend | aucun |
 | Exécution des tests | non |
-| Dossier documentation | `docs/` |
+| Dossier documentation | aucun (le `README.md` suffit) |
 | Plan de développement | aucun |
 | Validation documentation | avant écriture |
 | Dépôt GitHub | `David-Sd-Edition/Sd-Edition` |

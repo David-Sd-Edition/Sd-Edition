@@ -1,11 +1,15 @@
 :root {
-  --color-primary: #1f3a5f;
-  --color-accent: #e07a2f;
-  --color-text: #1d2430;
-  --color-muted: #5b6575;
+  /* Palette issue du logo : vert-bleu sombre (fond), orange (SD), vert (cadre) */
+  --color-primary: #244141;
+  --color-primary-light: #3f6b62;
+  --color-accent: #e8662a;
+  --color-accent-dark: #c4501a;
+  --color-green: #5aa52a;
+  --color-text: #1c2b2b;
+  --color-muted: #566664;
   --color-bg: #ffffff;
-  --color-bg-alt: #f3f5f8;
-  --color-border: #dde2ea;
+  --color-bg-alt: #f1f5f3;
+  --color-border: #d9e3df;
   --radius: 10px;
   --max-width: 1100px;
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -20,38 +24,43 @@ body { margin: 0; min-height: 100vh; display: flex; flex-direction: column; }
 main { flex: 1; }
 h1, h2, h3 { line-height: 1.25; color: var(--color-primary); }
 a { color: var(--color-primary); }
-a:hover { color: var(--color-accent); }
+a:hover { color: var(--color-accent-dark); }
 
 .container { max-width: var(--max-width); margin: 0 auto; padding: 0 1rem; }
 .narrow { max-width: 760px; }
 .muted { color: var(--color-muted); font-size: 0.95rem; }
 
-.site-header { border-bottom: 1px solid var(--color-border); background: var(--color-bg); position: sticky; top: 0; z-index: 10; }
-.site-header__inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 64px; flex-wrap: wrap; }
-.brand { font-weight: 700; font-size: 1.25rem; text-decoration: none; }
+.site-header { border-bottom: 3px solid var(--color-green); background: var(--color-primary); position: sticky; top: 0; z-index: 10; }
+.site-header__inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 76px; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; padding: 6px 0; }
+.brand__logo { display: block; height: 64px; width: auto; border-radius: 6px; }
 .site-header nav { display: flex; gap: 1.25rem; flex-wrap: wrap; }
-.site-header nav a { text-decoration: none; font-weight: 500; }
+.site-header nav a { text-decoration: none; font-weight: 500; color: #fff; }
+.site-header nav a:hover { color: #f5a06e; }
 
-.hero { background: linear-gradient(135deg, var(--color-primary), #2f5d8f); color: #fff; padding: 5rem 0 4.5rem; }
+.hero { background: linear-gradient(135deg, var(--color-primary-light), var(--color-primary) 70%); color: #fff; padding: 5rem 0 4.5rem; position: relative; overflow: hidden; }
+.hero::after { content: ''; position: absolute; right: max(-40px, calc(50% - var(--max-width) / 2)); top: 50%; width: min(48vw, 400px); aspect-ratio: 1; transform: translateY(-50%) rotate(-8deg); background: url('../assets/logo-filigrane.svg') center / contain no-repeat; pointer-events: none; }
+.hero .container { position: relative; z-index: 1; }
 .hero h1 { color: #fff; font-size: clamp(2.2rem, 6vw, 3.5rem); margin: 0 0 1rem; }
 .hero__lead { font-size: 1.2rem; max-width: 640px; margin: 0 0 2rem; opacity: 0.95; }
 
-.button { display: inline-block; background: var(--color-accent); color: #fff; padding: 0.75rem 1.5rem; border-radius: var(--radius); text-decoration: none; font-weight: 600; word-break: break-all; }
-.button:hover { color: #fff; filter: brightness(1.08); }
+.button { display: inline-block; background: var(--color-accent-dark); color: #fff; padding: 0.75rem 1.5rem; border-radius: var(--radius); text-decoration: none; font-weight: 600; word-break: break-all; }
+.button:hover { color: #fff; background: var(--color-accent); }
 
 .section { padding: 4rem 0; }
 .section--alt { background: var(--color-bg-alt); }
 .section h2 { margin-top: 0; }
 
 .cards { list-style: none; padding: 0; margin: 2rem 0 0; display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
-.card { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius); padding: 1.5rem; }
+.card { background: var(--color-bg); border: 1px solid var(--color-border); border-top: 3px solid var(--color-accent); border-radius: var(--radius); padding: 1.5rem; }
 .card h3 { margin: 0 0 0.5rem; }
 .card p { margin: 0; color: var(--color-muted); }
+.card .badge { display: inline-block; margin: 0 0 0.6rem; padding: 0.15rem 0.6rem; border-radius: 999px; background: #e6f2dc; color: #2f6a12; font-size: 0.8rem; font-weight: 600; }
 
 .legal h2 { margin-top: 2.25rem; font-size: 1.3rem; }
 .contact-line { margin: 1.5rem 0; }
 
-.site-footer { border-top: 1px solid var(--color-border); background: var(--color-bg-alt); font-size: 0.95rem; }
+.site-footer { border-top: 3px solid var(--color-accent); background: var(--color-bg-alt); font-size: 0.95rem; }
 .site-footer__inner { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; padding-top: 1.25rem; padding-bottom: 1.25rem; }
 .site-footer p { margin: 0; color: var(--color-muted); }
 .site-footer nav { display: flex; gap: 1.25rem; flex-wrap: wrap; }

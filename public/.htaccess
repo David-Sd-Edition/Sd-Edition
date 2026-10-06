@@ -14,6 +14,9 @@
 </IfModule>
 
 # ----- Spécifique sd-edition.fr (hors modèle commun) -----
+# Page d'accueil = index.html : un index.php resté de WordPress serait sinon servi en priorité.
+DirectoryIndex index.html
+
 # Adresse canonique sans www (une seule version du site pour les moteurs de recherche).
 <IfModule mod_rewrite.c>
   RewriteEngine On
@@ -28,7 +31,8 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteRule ^(wp-admin|wp-content|wp-includes|wp-json)(/.*)?$ - [G,L]
-  RewriteRule ^(wp-login|xmlrpc|wp-cron|wp-config)\.php$ - [G,L]
+  RewriteRule ^(wp-[^/]*|xmlrpc|index)\.php$ - [G,L]
+  RewriteRule ^(readme\.html|license\.txt|licence\.txt|wordfence-waf\.php|\.user\.ini|php\.ini|error_log)$ - [G,L]
   RewriteRule ^(.*/)?feed/?$ - [G,L]
   RewriteRule ^(comments|author|category|tag)(/.*)?$ - [G,L]
 </IfModule>

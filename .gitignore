@@ -3,3 +3,5 @@ dist/
 .idea/
 *.local
 .env*
+secrets.prod
+.claude/settings.local.json
