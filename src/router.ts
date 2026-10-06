@@ -31,6 +31,15 @@ export const routes: RouteRecordRaw[] = [
     },
   },
   {
+    path: '/developpement',
+    component: () => import('./pages/DevelopmentPage.vue'),
+    meta: {
+      title: 'Développement pour les entreprises',
+      description:
+        "Développement d'applications web, mobile et pour ordinateur pour les professionnels : création, reprise d'un existant, hébergement, maintenance et automatisations. Tarifs sur devis.",
+    },
+  },
+  {
     path: '/contact',
     component: () => import('./pages/ContactPage.vue'),
     meta: { title: 'Contact', description: 'Contacter Sd-Edition.' },

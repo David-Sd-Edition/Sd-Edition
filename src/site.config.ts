@@ -64,6 +64,25 @@ export const site = {
     email: 'contact@sd-edition.fr',
     // Laisser vide pour ne pas afficher de téléphone.
     phone: '',
+    // Types de demande : lien e-mail avec objet et corps préremplis (page Contact et boutons des
+    // pages d'activité). Pas de formulaire : le site reste sans serveur.
+    requests: {
+      development: {
+        label: 'Demander un devis de développement',
+        subject: 'Demande de devis : développement',
+        body: 'Entreprise :\nBesoin :\nDélai souhaité :\n',
+      },
+      ai: {
+        label: 'Demander un accompagnement IA',
+        subject: "Demande d'accompagnement : automatisation IA",
+        body: "Entreprise :\nTâches à automatiser :\nOutils utilisés aujourd'hui :\n",
+      },
+      publishedSite: {
+        label: 'Poser une question sur un de nos sites',
+        subject: 'Question sur un site édité par Sd-Edition',
+        body: 'Site concerné :\nQuestion :\n',
+      },
+    },
   },
 
   // Coordonnées publiées par o2switch dans ses propres mentions légales : à revérifier sur

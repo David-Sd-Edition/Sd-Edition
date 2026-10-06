@@ -59,7 +59,7 @@ a:hover { color: var(--color-accent-dark); }
 .card { background: var(--color-bg); border: 1px solid var(--color-border); border-top: 3px solid var(--color-accent); border-radius: var(--radius); padding: 1.5rem; }
 .card h3 { margin: 0 0 0.5rem; }
 .card p { margin: 0; color: var(--color-muted); }
-.cards--projects { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.cards--projects, .cards--wide { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
 .project-card { padding: 0; overflow: hidden; display: flex; flex-direction: column; }
 .project-card__screenshot { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; border-bottom: 1px solid var(--color-border); }
 .project-card__body { padding: 1.5rem; }
@@ -73,6 +73,22 @@ a:hover { color: var(--color-accent-dark); }
 .checklist li { margin-bottom: 0.6rem; }
 .checklist li::marker { color: var(--color-green); }
 .section__more { margin: 2rem 0 0; }
+
+.notice { display: flex; align-items: center; justify-content: space-between; gap: 1rem 2rem; flex-wrap: wrap; margin: 0 0 3rem; padding: 1.25rem 1.5rem; border-left: 4px solid var(--color-accent); border-radius: var(--radius); background: var(--color-bg-alt); }
+.notice p { margin: 0; max-width: 640px; }
+.section--alt .notice { background: var(--color-bg); }
+
+.steps { list-style: none; counter-reset: step; padding: 0; margin: 2rem 0 0; display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+.steps li { counter-increment: step; position: relative; padding-top: 3rem; }
+.steps li::before { content: counter(step); position: absolute; top: 0; left: 0; width: 2.25rem; height: 2.25rem; display: grid; place-items: center; border-radius: 50%; background: var(--color-primary); color: #fff; font-weight: 700; }
+.steps h3 { margin: 0 0 0.35rem; font-size: 1.05rem; }
+.steps p { margin: 0; color: var(--color-muted); }
+
+.tags { list-style: none; padding: 0; margin: 1.5rem 0 0; display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.tags li { padding: 0.35rem 0.9rem; border: 1px solid var(--color-border); border-radius: 999px; background: var(--color-bg-alt); font-weight: 500; }
+
+.cta { text-align: center; }
+.cta p { margin: 0 0 1.5rem; }
 
 .legal h2 { margin-top: 2.25rem; font-size: 1.3rem; }
 .contact-line { margin: 1.5rem 0; }
