@@ -40,6 +40,15 @@ export const routes: RouteRecordRaw[] = [
     },
   },
   {
+    path: '/automatisation-ia',
+    component: () => import('./pages/AiPage.vue'),
+    meta: {
+      title: 'Automatisation IA avec Claude',
+      description:
+        "Accompagnement des professionnels dans l'automatisation de tâches avec Claude : audit, mise en place, prise en main par les équipes, cadre de traitement des données. Tarifs sur devis.",
+    },
+  },
+  {
     path: '/contact',
     component: () => import('./pages/ContactPage.vue'),
     meta: { title: 'Contact', description: 'Contacter Sd-Edition.' },
