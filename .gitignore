@@ -5,3 +5,4 @@ dist/
 .env*
 secrets.prod
 .claude/settings.local.json
+.vite-ssg-temp/
