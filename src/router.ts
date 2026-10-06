@@ -60,7 +60,11 @@ export const routes: RouteRecordRaw[] = [
   {
     path: '/contact',
     component: () => import('./pages/ContactPage.vue'),
-    meta: { title: 'Contact', description: 'Contacter Sd-Edition.' },
+    meta: {
+      title: 'Contact',
+      description:
+        "Contacter Sd-Edition : demande de devis de développement, demande d'accompagnement IA ou question sur un site édité.",
+    },
   },
   {
     path: '/conditions-generales',

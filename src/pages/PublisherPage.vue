@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import ProjectCard from '../components/ProjectCard.vue'
+import { mailtoFor } from '../contact'
 import { site } from '../site.config'
 
 const roles = [
@@ -66,7 +67,8 @@ const roles = [
         <ProjectCard v-for="project in site.projects" :key="project.name" :project="project" />
       </ul>
       <p class="section__more">
-        Une question sur l'un de nos sites ? <RouterLink to="/contact">Contactez-nous</RouterLink>.
+        Une question sur l'un de nos sites ?
+        <a :href="mailtoFor('publishedSite')">Écrivez-nous</a>.
       </p>
     </div>
   </section>
