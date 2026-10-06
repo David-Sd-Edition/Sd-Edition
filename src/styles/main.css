@@ -93,6 +93,7 @@ a:hover { color: var(--color-accent-dark); }
 
 .cta { text-align: center; }
 .cta p { margin: 0 0 1.5rem; }
+.cta .cta__note { margin: 1.25rem 0 0; }
 .cta .trademark { margin: 2rem 0 0; font-size: 0.85rem; }
 
 .legal h2 { margin-top: 2.25rem; font-size: 1.3rem; }

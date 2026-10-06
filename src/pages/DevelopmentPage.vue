@@ -108,6 +108,9 @@ const technologies = [
       <h2>Un projet ?</h2>
       <p>Décrivez-nous votre besoin : nous revenons vers vous avec un devis.</p>
       <a :href="mailtoFor('development')" class="button">Demander un devis</a>
+      <p class="muted cta__note">
+        Voir nos <RouterLink to="/conditions-generales">conditions générales de prestation</RouterLink>.
+      </p>
     </div>
   </section>
 </template>

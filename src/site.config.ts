@@ -106,6 +106,18 @@ export const site = {
 
   projects,
 
+  // Conditions générales de prestation (page /conditions-generales). Texte à relire et valider
+  // avant la mise en ligne : `updatedAt` reste « À COMPLÉTER » jusque-là (déploiement bloqué).
+  terms: {
+    quoteValidityDays: 30,
+    depositPercent: 30,
+    paymentDays: 30,
+    acceptanceDays: 15,
+    terminationNoticeMonths: 1,
+    court: 'tribunal de commerce de Rennes',
+    updatedAt: 'À COMPLÉTER',
+  },
+
   // Date de dernière mise à jour des pages légales (affichée en bas de ces pages).
   legalUpdatedAt: '5 octobre 2026',
 }

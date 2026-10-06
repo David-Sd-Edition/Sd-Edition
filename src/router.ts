@@ -63,6 +63,15 @@ export const routes: RouteRecordRaw[] = [
     meta: { title: 'Contact', description: 'Contacter Sd-Edition.' },
   },
   {
+    path: '/conditions-generales',
+    component: () => import('./pages/TermsPage.vue'),
+    meta: {
+      title: 'Conditions générales de prestation',
+      description:
+        'Conditions générales des prestations de Sd-Edition, réservées aux professionnels : devis, prix, paiement, propriété du code, responsabilité, données personnelles.',
+    },
+  },
+  {
     path: '/mentions-legales',
     component: () => import('./pages/LegalNoticePage.vue'),
     meta: { title: 'Mentions légales', description: 'Mentions légales du site sd-edition.fr.' },
