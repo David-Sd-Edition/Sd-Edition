@@ -43,7 +43,7 @@ export const site = {
   commercialName: 'Sd-Edition',
   domain: 'sd-edition.fr',
   url: 'https://sd-edition.fr',
-  tagline: 'Création et exploitation de sites Internet',
+  tagline: 'Éditeur de sites, développement et automatisation IA',
 
   // Entrepreneur individuel : le nom et le prénom doivent apparaître, suivis de la mention
   // « EI » (loi du 14 février 2022). Le nom commercial ne les remplace pas.

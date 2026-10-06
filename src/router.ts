@@ -18,7 +18,7 @@ export const routes: RouteRecordRaw[] = [
     component: () => import('./pages/HomePage.vue'),
     meta: {
       description:
-        'Sd-Edition conçoit, développe et exploite des sites Internet qui mettent leurs utilisateurs en relation avec des services adaptés à leurs besoins.',
+        "Sd-Edition édite ses propres sites, développe des applications web, mobile et pour ordinateur pour les entreprises et les accompagne dans l'automatisation avec l'IA. Prestations réservées aux professionnels, sur devis.",
     },
   },
   {
