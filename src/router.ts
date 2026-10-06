@@ -49,6 +49,15 @@ export const routes: RouteRecordRaw[] = [
     },
   },
   {
+    path: '/a-propos',
+    component: () => import('./pages/AboutPage.vue'),
+    meta: {
+      title: 'À propos',
+      description:
+        "Qui est derrière Sd-Edition : parcours, compétences, façon de travailler et statut d'entrepreneur individuel.",
+    },
+  },
+  {
     path: '/contact',
     component: () => import('./pages/ContactPage.vue'),
     meta: { title: 'Contact', description: 'Contacter Sd-Edition.' },

@@ -58,6 +58,16 @@ export const site = {
     registration: '',
     // Franchise en base de TVA : mention obligatoire sur les documents commerciaux.
     vatMention: 'TVA non applicable, article 293 B du CGI',
+    // Activité déclarée au Registre national des entreprises (activité secondaire : absente du
+    // code APE). Reprise mot pour mot dans « À propos » et les mentions légales.
+    declaredActivity: "Développement d'applications web, mobile ou pour ordinateur",
+    declaredActivitySince: '1er mars 2024',
+  },
+
+  // Page « À propos ». Le parcours : un paragraphe par élément du tableau.
+  about: {
+    background: ['À COMPLÉTER'],
+    skills: ['À COMPLÉTER'],
   },
 
   contact: {
@@ -101,3 +111,7 @@ export const site = {
 }
 
 export const ownerFullName = `${site.owner.firstName} ${site.owner.lastName}`
+
+// SIREN (9 premiers chiffres du SIRET) : lien vers l'extrait d'immatriculation sur data.inpi.fr.
+export const siren = site.owner.siret.replace(/\s/g, '').slice(0, 9)
+export const registryUrl = `https://data.inpi.fr/entreprises/${siren}`
