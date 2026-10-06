@@ -119,7 +119,7 @@ export const site = {
   },
 
   // Date de dernière mise à jour des pages légales (affichée en bas de ces pages).
-  legalUpdatedAt: '5 octobre 2026',
+  legalUpdatedAt: '6 octobre 2026',
 }
 
 export const ownerFullName = `${site.owner.firstName} ${site.owner.lastName}`

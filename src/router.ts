@@ -78,7 +78,10 @@ export const routes: RouteRecordRaw[] = [
   {
     path: '/mentions-legales',
     component: () => import('./pages/LegalNoticePage.vue'),
-    meta: { title: 'Mentions légales', description: 'Mentions légales du site sd-edition.fr.' },
+    meta: {
+      title: 'Mentions légales',
+      description: 'Mentions légales du site sd-edition.fr : éditeur, hébergeur, activités exercées.',
+    },
   },
   {
     path: '/confidentialite',
