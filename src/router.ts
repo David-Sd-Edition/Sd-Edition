@@ -22,6 +22,15 @@ export const routes: RouteRecordRaw[] = [
     },
   },
   {
+    path: '/editeur-de-sites',
+    component: () => import('./pages/PublisherPage.vue'),
+    meta: {
+      title: 'Éditeur de sites',
+      description:
+        'Sd-Edition conçoit, exploite et maintient ses propres sites. Chaque site garde ses propres données : aucun échange, aucun recoupement, aucune revente.',
+    },
+  },
+  {
     path: '/contact',
     component: () => import('./pages/ContactPage.vue'),
     meta: { title: 'Contact', description: 'Contacter Sd-Edition.' },

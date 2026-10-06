@@ -2,6 +2,43 @@
 // contact, mentions légales, confidentialité). Toute valeur « À COMPLÉTER » bloque le
 // déploiement (`npm run check:config`, lancé par la CI).
 
+// Sites édités et exploités par Sd-Edition (accueil et page « Éditeur de sites »).
+// - `inDevelopment: true` affiche la mention « En développement ».
+// - `logo`, `screenshot` : nom d'un fichier de `src/assets/projects/` (facultatif).
+// - `privacyUrl` : politique de confidentialité du site (facultatif, lien affiché sur la carte).
+export interface Project {
+  name: string
+  url: string
+  description: string
+  inDevelopment?: boolean
+  logo?: string
+  screenshot?: string
+  privacyUrl?: string
+}
+
+const projects: Project[] = [
+  {
+    name: 'VoxLiber',
+    url: 'https://voxliber.sd-edition.fr',
+    description:
+      'Écrivez vos mémoires ou une histoire originale, au clavier ou par dictée, sur ordinateur comme sur mobile.',
+  },
+  {
+    name: 'MyRefereeExperience',
+    url: 'https://myrefereeexperience.sd-edition.fr',
+    description:
+      "Apprenez les règles du football de façon interactive : de courts modules suivis d'un questionnaire rapide.",
+    inDevelopment: true,
+  },
+  {
+    name: 'EquiCompetManager',
+    url: 'https://ecm.sd-edition.fr',
+    description:
+      'Gestion des compétitions équestres, de la création de la compétition aux inscriptions, à la saisie des résultats et aux classements.',
+    inDevelopment: true,
+  },
+]
+
 export const site = {
   commercialName: 'Sd-Edition',
   domain: 'sd-edition.fr',
@@ -38,30 +75,7 @@ export const site = {
     url: 'https://www.o2switch.fr',
   },
 
-  // Sites édités et exploités par Sd-Edition (page d'accueil, section « Nos sites »).
-  // `inDevelopment: true` affiche la mention « En développement ».
-  projects: [
-    {
-      name: 'VoxLiber',
-      url: 'https://voxliber.sd-edition.fr',
-      description:
-        'Écrivez vos mémoires ou une histoire originale, au clavier ou par dictée, sur ordinateur comme sur mobile.',
-    },
-    {
-      name: 'MyRefereeExperience',
-      url: 'https://myrefereeexperience.sd-edition.fr',
-      description:
-        "Apprenez les règles du football de façon interactive : de courts modules suivis d'un questionnaire rapide.",
-      inDevelopment: true,
-    },
-    {
-      name: 'EquiCompetManager',
-      url: 'https://ecm.sd-edition.fr',
-      description:
-        'Gestion des compétitions équestres, de la création de la compétition aux inscriptions, à la saisie des résultats et aux classements.',
-      inDevelopment: true,
-    },
-  ],
+  projects,
 
   // Date de dernière mise à jour des pages légales (affichée en bas de ces pages).
   legalUpdatedAt: '5 octobre 2026',

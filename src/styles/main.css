@@ -43,6 +43,10 @@ a:hover { color: var(--color-accent-dark); }
 .hero .container { position: relative; z-index: 1; }
 .hero h1 { color: #fff; font-size: clamp(2.2rem, 6vw, 3.5rem); margin: 0 0 1rem; }
 .hero__lead { font-size: 1.2rem; max-width: 640px; margin: 0 0 2rem; opacity: 0.95; }
+.hero--page { padding: 3.5rem 0 3rem; }
+.hero--page::after { width: min(36vw, 260px); }
+.hero--page h1 { font-size: clamp(1.9rem, 5vw, 2.75rem); }
+.hero--page .hero__lead { margin-bottom: 0; }
 
 .button { display: inline-block; background: var(--color-accent-dark); color: #fff; padding: 0.75rem 1.5rem; border-radius: var(--radius); text-decoration: none; font-weight: 600; word-break: break-all; }
 .button:hover { color: #fff; background: var(--color-accent); }
@@ -55,7 +59,20 @@ a:hover { color: var(--color-accent-dark); }
 .card { background: var(--color-bg); border: 1px solid var(--color-border); border-top: 3px solid var(--color-accent); border-radius: var(--radius); padding: 1.5rem; }
 .card h3 { margin: 0 0 0.5rem; }
 .card p { margin: 0; color: var(--color-muted); }
+.cards--projects { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.project-card { padding: 0; overflow: hidden; display: flex; flex-direction: column; }
+.project-card__screenshot { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; border-bottom: 1px solid var(--color-border); }
+.project-card__body { padding: 1.5rem; }
+.project-card__title { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; }
+.project-card__title h3 { margin: 0; }
+.project-card__logo { flex: none; width: 40px; height: 40px; object-fit: contain; border-radius: 8px; }
+.card .project-card__privacy { margin-top: 0.75rem; font-size: 0.9rem; }
 .card .badge { display: inline-block; margin: 0 0 0.6rem; padding: 0.15rem 0.6rem; border-radius: 999px; background: #e6f2dc; color: #2f6a12; font-size: 0.8rem; font-weight: 600; }
+
+.checklist { padding-left: 1.25rem; }
+.checklist li { margin-bottom: 0.6rem; }
+.checklist li::marker { color: var(--color-green); }
+.section__more { margin: 2rem 0 0; }
 
 .legal h2 { margin-top: 2.25rem; font-size: 1.3rem; }
 .contact-line { margin: 1.5rem 0; }
