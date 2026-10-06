@@ -14,5 +14,4 @@ Site statique (Vue 3 + Vite 5) de `sd-edition.fr`. Aucun backend, aucune base de
 
 - Identité de l'entreprise : `src/site.config.ts`.
 - Règles Apache : `public/.htaccess` (modèle commun `sd-edition-infra/templates/web/.htaccess`).
-- Remplacement de l'ancien WordPress : [`docs/migration-wordpress.md`](docs/migration-wordpress.md).
 - Cloner : `git clone --recurse-submodules <url>` puis `git -C sd-edition-infra checkout main`.

@@ -46,7 +46,7 @@ branches :
 | Dossier tests backend | aucun |
 | Dossier tests frontend | aucun |
 | Exécution des tests | non |
-| Dossier documentation | `docs/` |
+| Dossier documentation | aucun (le `README.md` suffit) |
 | Plan de développement | aucun |
 | Validation documentation | avant écriture |
 | Dépôt GitHub | `David-Sd-Edition/Sd-Edition` |
