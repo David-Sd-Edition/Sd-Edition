@@ -34,6 +34,38 @@ import { site, ownerFullName } from '../site.config'
       </ul>
       <p>Ces données ne sont ni vendues, ni cédées, ni utilisées à des fins publicitaires.</p>
 
+      <h2 id="sites-edites">Sites édités par {{ site.commercialName }}</h2>
+      <p>
+        {{ site.commercialName }} édite et exploite plusieurs sites. Chacun a sa propre politique de
+        confidentialité, qui décrit les données qu'il traite et leur durée de conservation. Pour tous ces
+        sites, {{ site.commercialName }} s'engage à ce que :
+      </p>
+      <ul>
+        <li>
+          les données restent <strong>sur le site où elles ont été saisies</strong> : un compte créé sur
+          l'un de nos sites n'existe que sur ce site ;
+        </li>
+        <li>aucune donnée ne soit <strong>échangée ni recoupée</strong> entre nos sites ;</li>
+        <li>aucune donnée ne soit <strong>revendue</strong>, à qui que ce soit ;</li>
+        <li>
+          les statistiques se limitent à des <strong>comptages</strong> (nombre d'utilisateurs, de
+          connexions), calculés par le site lui-même, sans outil de mesure d'audience ;
+        </li>
+        <li>
+          les données ne servent qu'au <strong>fonctionnement</strong> du site, à sa
+          <strong>sécurité</strong>, à sa <strong>maintenance</strong> et à son
+          <strong>amélioration</strong>.
+        </li>
+      </ul>
+      <ul>
+        <li v-for="project in site.projects" :key="project.name">
+          {{ project.name }} :
+          <a :href="project.privacyUrl ?? project.url" target="_blank" rel="noopener">{{
+            project.privacyUrl ? 'politique de confidentialité' : project.url
+          }}</a>
+        </li>
+      </ul>
+
       <h2>Vos droits</h2>
       <p>
         Vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation et

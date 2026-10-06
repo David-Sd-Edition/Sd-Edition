@@ -88,7 +88,8 @@ export const routes: RouteRecordRaw[] = [
     component: () => import('./pages/PrivacyPage.vue'),
     meta: {
       title: 'Politique de confidentialité',
-      description: 'Données personnelles et cookies sur sd-edition.fr.',
+      description:
+        "Données personnelles sur sd-edition.fr et engagements de Sd-Edition pour les sites qu'il édite : aucun échange, aucun recoupement, aucune revente.",
     },
   },
   {
