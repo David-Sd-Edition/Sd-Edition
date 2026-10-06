@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { site, ownerFullName } from '../site.config'
+import { site, ownerFullName, ownerAddress } from '../site.config'
 
 const terms = site.terms
 </script>
@@ -10,7 +10,7 @@ const terms = site.terms
       <h1>Conditions générales de prestation</h1>
       <p>
         Prestataire : <strong>{{ ownerFullName }}, EI</strong> (entrepreneur individuel), exerçant sous
-        le nom commercial <strong>{{ site.commercialName }}</strong> — {{ site.owner.address }} —
+        le nom commercial <strong>{{ site.commercialName }}</strong> — {{ ownerAddress }} —
         SIRET {{ site.owner.siret }} —
         <a :href="`mailto:${site.contact.email}`">{{ site.contact.email }}</a>.
       </p>

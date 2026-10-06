@@ -50,8 +50,15 @@ export const site = {
   owner: {
     firstName: 'David',
     lastName: 'Vallade',
-    // Adresse de l'établissement (ou adresse de domiciliation déclarée).
-    address: '7 Le Brillet, 35290 Saint-Onen-la-Chapelle, France',
+    // Adresse de l'établissement (ou adresse de domiciliation déclarée). Détaillée pour les
+    // données structurées (accueil) ; `ownerAddress` la donne sur une ligne.
+    postalAddress: {
+      street: '7 Le Brillet',
+      postalCode: '35290',
+      city: 'Saint-Onen-la-Chapelle',
+      country: 'France',
+      countryCode: 'FR',
+    },
     siret: '984 487 116 00019',
     // Ligne d'immatriculation telle qu'elle figure sur l'avis de situation (ex. « Immatriculé au
     // RNE »). Laisser vide pour ne pas l'afficher.
@@ -123,6 +130,9 @@ export const site = {
 }
 
 export const ownerFullName = `${site.owner.firstName} ${site.owner.lastName}`
+
+const { street, postalCode, city, country } = site.owner.postalAddress
+export const ownerAddress = `${street}, ${postalCode} ${city}, ${country}`
 
 // SIREN (9 premiers chiffres du SIRET) : lien vers l'extrait d'immatriculation sur data.inpi.fr.
 export const siren = site.owner.siret.replace(/\s/g, '').slice(0, 9)

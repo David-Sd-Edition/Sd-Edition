@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { site, ownerFullName, registryUrl } from '../site.config'
+import { site, ownerFullName, ownerAddress, registryUrl } from '../site.config'
 </script>
 
 <template>
@@ -14,7 +14,7 @@ import { site, ownerFullName, registryUrl } from '../site.config'
         <strong>{{ site.commercialName }}</strong>.
       </p>
       <ul>
-        <li>Adresse : {{ site.owner.address }}</li>
+        <li>Adresse : {{ ownerAddress }}</li>
         <li>SIRET : {{ site.owner.siret }}</li>
         <li v-if="site.owner.registration">{{ site.owner.registration }}</li>
         <li>{{ site.owner.vatMention }}</li>

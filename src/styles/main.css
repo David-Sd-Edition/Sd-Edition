@@ -25,6 +25,12 @@ main { flex: 1; }
 h1, h2, h3 { line-height: 1.25; color: var(--color-primary); }
 a { color: var(--color-primary); }
 a:hover { color: var(--color-accent-dark); }
+:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; }
+main:focus { outline: none; }
+
+/* Lien d'évitement : visible uniquement au clavier. */
+.skip-link { position: absolute; left: 1rem; top: -100px; z-index: 20; padding: 0.6rem 1rem; border-radius: var(--radius); background: #fff; color: var(--color-primary); font-weight: 600; }
+.skip-link:focus { top: 1rem; }
 
 .container { max-width: var(--max-width); margin: 0 auto; padding: 0 1rem; }
 .narrow { max-width: 760px; }
@@ -63,14 +69,15 @@ a:hover { color: var(--color-accent-dark); }
 .hero .container { position: relative; z-index: 1; }
 .hero h1 { color: #fff; font-size: clamp(2.2rem, 6vw, 3.5rem); margin: 0 0 1rem; }
 .hero__lead { font-size: 1.2rem; max-width: 640px; margin: 0 0 2rem; opacity: 0.95; }
-.hero__note { margin: -1rem 0 2rem; font-weight: 600; color: #f5c3a4; }
+.hero__note { margin: -1rem 0 2rem; font-weight: 600; color: #ffe8d9; }
 .hero--page { padding: 3.5rem 0 3rem; }
 .hero--page::after { width: min(36vw, 260px); }
 .hero--page h1 { font-size: clamp(1.9rem, 5vw, 2.75rem); }
 .hero--page .hero__lead { margin-bottom: 0; }
 
 .button { display: inline-block; background: var(--color-accent-dark); color: #fff; padding: 0.75rem 1.5rem; border-radius: var(--radius); text-decoration: none; font-weight: 600; word-break: break-all; }
-.button:hover { color: #fff; background: var(--color-accent); }
+/* Survol plus foncé : le blanc sur l'orange clair (--color-accent) ne serait pas assez contrasté. */
+.button:hover { color: #fff; background: #9e3f0e; }
 
 .section { padding: 4rem 0; }
 .section--alt { background: var(--color-bg-alt); }

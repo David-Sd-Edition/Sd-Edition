@@ -17,7 +17,9 @@ Les pages sont pré-rendues au build par `vite-ssg` : un fichier HTML par route 
 | Mettre en ligne | `git push` sur `Develop`, Pull Request `Develop` → `Master`, fusion (workflow `Deploy Prod Site`) |
 
 - Identité de l'entreprise : `src/site.config.ts`.
-- Titre et description d'une page : `meta` de sa route dans `src/router.ts`.
+- Titre et description d'une page : `meta` de sa route dans `src/router.ts`. Balises d'aperçu de lien
+  (Open Graph) ajoutées par `src/App.vue`, image `public/og-image.jpg` (1200 × 630).
+- Captures et logos des sites : fichiers de `src/assets/projects/`, référencés dans `site.config.ts`.
 - Règles Apache : `public/.htaccess` (modèle commun `sd-edition-infra/templates/web/.htaccess`). Le bloc
   spécifique sert les pages pré-rendues sans extension et répond 404 aux URL inconnues.
 - Cloner : `git clone --recurse-submodules <url>` puis `git -C sd-edition-infra checkout main`.

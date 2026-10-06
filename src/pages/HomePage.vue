@@ -1,6 +1,33 @@
 <script setup lang="ts">
+import { useHead } from '@unhead/vue'
 import ProjectCard from '../components/ProjectCard.vue'
-import { site } from '../site.config'
+import { site, ownerFullName } from '../site.config'
+
+// Données structurées (schema.org) décrivant l'entreprise pour les moteurs de recherche. Aucun
+// prix : les prestations sont sur devis.
+const { street, postalCode, city, countryCode } = site.owner.postalAddress
+const organization = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: site.commercialName,
+  legalName: `${ownerFullName} EI`,
+  url: `${site.url}/`,
+  logo: `${site.url}/apple-touch-icon.png`,
+  image: `${site.url}/og-image.jpg`,
+  email: site.contact.email,
+  description:
+    "Édition de sites, développement d'applications web, mobile et pour ordinateur, automatisation IA. Prestations réservées aux professionnels, sur devis.",
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: street,
+    postalCode,
+    addressLocality: city,
+    addressCountry: countryCode,
+  },
+}
+useHead({
+  script: [{ type: 'application/ld+json', innerHTML: JSON.stringify(organization) }],
+})
 
 const activities = [
   {

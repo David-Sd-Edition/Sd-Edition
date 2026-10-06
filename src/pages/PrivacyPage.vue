@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { site, ownerFullName } from '../site.config'
+import { site, ownerFullName, ownerAddress } from '../site.config'
 </script>
 
 <template>
@@ -9,7 +9,7 @@ import { site, ownerFullName } from '../site.config'
 
       <h2>Responsable du traitement</h2>
       <p>
-        {{ ownerFullName }}, EI ({{ site.commercialName }}) — {{ site.owner.address }} —
+        {{ ownerFullName }}, EI ({{ site.commercialName }}) — {{ ownerAddress }} —
         <a :href="`mailto:${site.contact.email}`">{{ site.contact.email }}</a>.
       </p>
 
