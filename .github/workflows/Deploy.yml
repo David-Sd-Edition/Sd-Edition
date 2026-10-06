@@ -38,18 +38,25 @@ jobs:
       # SECRETS_PROD : lignes CLÉ=valeur (FTP_HOST, FTP_PORT, FTP_USER, FTP_PASS, FTP_SITE_DIR).
       - name: Extraire les identifiants FTP depuis SECRETS_PROD
         shell: bash
+        # Le secret passe par une variable d'environnement : inséré directement dans le script, un
+        # mot de passe contenant $, `, \ ou " serait modifié par bash avant l'envoi.
+        env:
+          SECRETS_PROD: ${{ secrets.SECRETS_PROD }}
         run: |
           missing=0
           while IFS='=' read -r key value; do
             key="$(printf '%s' "$key" | tr -d '\r' | xargs)"
-            value="$(printf '%s' "$value" | tr -d '\r')"
+            # Espaces autour du « = » et en fin de ligne retirés.
+            value="$(printf '%s' "$value" | tr -d '\r' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')"
             [ -z "$key" ] && continue
+            case "$key" in \#*) continue ;; esac
             if [ "$key" = "FTP_SITE_DIR" ]; then
               case "$value" in */) ;; *) value="$value/" ;; esac
             fi
-            echo "::add-mask::$value"
+            # Masquer « / » ou « 21 » remplacerait ces caractères partout dans les journaux.
+            case "$key" in FTP_HOST|FTP_USER|FTP_PASS) echo "::add-mask::$value" ;; esac
             echo "$key=$value" >> "$GITHUB_ENV"
-          done <<< "${{ secrets.SECRETS_PROD }}"
+          done <<< "$SECRETS_PROD"
           for VAR in FTP_HOST FTP_PORT FTP_USER FTP_PASS FTP_SITE_DIR; do
             if ! grep -q "^${VAR}=." "$GITHUB_ENV"; then
               echo "::error::Variable ${VAR} absente ou vide dans le secret SECRETS_PROD"
