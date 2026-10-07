@@ -73,8 +73,8 @@ export const site = {
 
   // Page « À propos ». Le parcours : un paragraphe par élément du tableau.
   about: {
-    background: ['À COMPLÉTER'],
-    skills: ['À COMPLÉTER'],
+    background: ['Développeur depuis 15 ans, lead développeur depuis 5 ans.'],
+    skills: ['Développement Java, C# et TypeScript', 'CI/CD avec GitHub Actions', 'Docker'],
   },
 
   contact: {
@@ -122,7 +122,7 @@ export const site = {
     acceptanceDays: 15,
     terminationNoticeMonths: 1,
     court: 'tribunal de commerce de Rennes',
-    updatedAt: 'À COMPLÉTER',
+    updatedAt: '7 octobre 2026',
   },
 
   // Date de dernière mise à jour des pages légales (affichée en bas de ces pages).
