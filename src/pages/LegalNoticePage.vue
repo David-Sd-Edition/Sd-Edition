@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { site, ownerFullName } from '../site.config'
+import { site, ownerFullName, ownerAddress, registryUrl } from '../site.config'
 </script>
 
 <template>
@@ -14,7 +14,7 @@ import { site, ownerFullName } from '../site.config'
         <strong>{{ site.commercialName }}</strong>.
       </p>
       <ul>
-        <li>Adresse : {{ site.owner.address }}</li>
+        <li>Adresse : {{ ownerAddress }}</li>
         <li>SIRET : {{ site.owner.siret }}</li>
         <li v-if="site.owner.registration">{{ site.owner.registration }}</li>
         <li>{{ site.owner.vatMention }}</li>
@@ -33,25 +33,33 @@ import { site, ownerFullName } from '../site.config'
         <a :href="site.host.url" target="_blank" rel="noopener">{{ site.host.url }}</a>
       </p>
 
-      <h2>Activité</h2>
+      <h2 id="activite">Activité</h2>
+      <p>{{ site.commercialName }} exerce trois activités :</p>
+      <ul>
+        <li>
+          <strong>édition de sites</strong> : conception, exploitation et maintenance de ses propres
+          sites ;
+        </li>
+        <li>
+          <strong>développement pour les entreprises</strong> : développement d'applications web,
+          mobile ou pour ordinateur, hébergement et maintenance des applications livrées ;
+        </li>
+        <li>
+          <strong>automatisation IA</strong> : accompagnement des entreprises dans l'automatisation de
+          tâches avec l'intelligence artificielle Claude.
+        </li>
+      </ul>
       <p>
-        {{ site.commercialName }} crée et exploite des sites Internet. Certains de ces sites mettent
-        leurs utilisateurs en relation avec des services proposés par des tiers.
+        Activité déclarée au Registre national des entreprises depuis le
+        {{ site.owner.declaredActivitySince }} : {{ site.owner.declaredActivity.toLowerCase() }}.
+        Cette activité secondaire n'apparaît pas dans le code APE. L'ensemble des activités déclarées
+        figure sur l'extrait d'immatriculation,
+        <a :href="registryUrl" target="_blank" rel="noopener">consultable sur data.inpi.fr</a> ou
+        communiqué sur simple demande.
       </p>
-
-      <h2 id="mise-en-relation">Information sur la mise en relation</h2>
       <p>
-        Lorsqu'un site édité par {{ site.commercialName }} présente des services proposés par des
-        tiers, l'utilisateur contracte directement avec le tiers concerné, selon les conditions
-        générales de celui-ci. {{ site.commercialName }} n'est pas partie à ce contrat et n'intervient
-        ni dans son exécution ni dans le paiement.
-      </p>
-      <p>
-        Conformément à l'article L. 111-7 du Code de la consommation, chaque site concerné indique
-        les critères de classement et de référencement des offres présentées, ainsi que l'existence
-        éventuelle d'une relation contractuelle, d'un lien capitalistique ou d'une rémunération
-        (commission, affiliation…) entre {{ site.commercialName }} et les tiers référencés, lorsque
-        ceux-ci influencent ce classement.
+        Les prestations sont <strong>réservées aux professionnels</strong> et établies sur devis, selon
+        les <RouterLink to="/conditions-generales">conditions générales de prestation</RouterLink>.
       </p>
 
       <h2>Propriété intellectuelle</h2>
@@ -59,6 +67,10 @@ import { site, ownerFullName } from '../site.config'
         L'ensemble des contenus de ce site (textes, logos, graphismes, code) est la propriété de
         {{ ownerFullName }}, sauf mention contraire. Toute reproduction, totale ou partielle, sans
         autorisation préalable est interdite.
+      </p>
+      <p>
+        Claude est une marque d'Anthropic. {{ site.commercialName }} n'est ni affilié à Anthropic ni
+        partenaire d'Anthropic ; la marque est citée uniquement pour décrire les prestations proposées.
       </p>
 
       <h2>Liens externes</h2>

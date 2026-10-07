@@ -36,6 +36,23 @@ DirectoryIndex index.html
   RewriteRule ^(.*/)?feed/?$ - [G,L]
   RewriteRule ^(comments|author|category|tag)(/.*)?$ - [G,L]
 </IfModule>
+
+# Pages pré-rendues au build (vite-ssg) : `/contact` est servi par `contact.html`. Une URL avec
+# barre finale est redirigée vers l'URL sans barre. Toute autre URL inconnue répond 404 avec la
+# page `404.html` : le fallback SPA du modèle commun (index.html avec un code 200) n'est donc
+# plus atteint.
+ErrorDocument 404 /404.html
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.+)/$ https://%{HTTP_HOST}/$1 [R=301,L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.+)$ /$1.html [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . - [R=404,L]
+</IfModule>
 # ----- Fin du bloc spécifique -----
 
 # Fallback SPA : toute URL qui ne correspond pas à un fichier ou dossier existant est servie par

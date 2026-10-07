@@ -5,3 +5,5 @@ dist/
 .env*
 secrets.prod
 .claude/settings.local.json
+.vite-ssg-temp/
+vite.config.ts.timestamp-*
