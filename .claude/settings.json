@@ -26,7 +26,8 @@
       "Bash(gh project item-list:*)",
       "Bash(gh project item-edit:*)",
       "mcp__claude-in-chrome__browser_batch",
-      "mcp__claude-in-chrome__javascript_tool"
+      "mcp__claude-in-chrome__javascript_tool",
+      "Bash(node sd-edition-infra/scripts/tickets.mjs:*)"
     ],
     "deny": [
       "Read(~/Documents/Workspace/EquiCompetManager/**)",
