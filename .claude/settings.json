@@ -1,6 +1,31 @@
 {
   "permissions": {
-    "allow": [],
+    "allow": [
+      "mcp__claude-in-chrome__computer",
+      "mcp__claude-in-chrome__find",
+      "mcp__claude-in-chrome__form_input",
+      "mcp__claude-in-chrome__get_page_text",
+      "mcp__claude-in-chrome__gif_creator",
+      "mcp__claude-in-chrome__list_connected_browsers",
+      "mcp__claude-in-chrome__navigate",
+      "mcp__claude-in-chrome__read_console_messages",
+      "mcp__claude-in-chrome__read_network_requests",
+      "mcp__claude-in-chrome__read_page",
+      "mcp__claude-in-chrome__select_browser",
+      "mcp__claude-in-chrome__tabs_close_mcp",
+      "mcp__claude-in-chrome__tabs_context_mcp",
+      "mcp__claude-in-chrome__tabs_create_mcp",
+      "Bash(gh auth status:*)",
+      "Bash(gh issue list:*)",
+      "Bash(gh issue view:*)",
+      "Bash(gh pr list:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh pr checks:*)",
+      "Bash(gh project view:*)",
+      "Bash(gh project field-list:*)",
+      "Bash(gh project item-list:*)",
+      "Bash(gh project item-edit:*)"
+    ],
     "deny": [
       "Read(~/Documents/Workspace/EquiCompetManager/**)",
       "Edit(~/Documents/Workspace/EquiCompetManager/**)",
@@ -8,7 +33,14 @@
       "Edit(~/Documents/Workspace/MyRefereeExperience/**)",
       "Read(~/Documents/Workspace/VoxLiber/**)",
       "Edit(~/Documents/Workspace/VoxLiber/**)",
-      "Edit(~/Documents/Workspace/sd-edition-infra/**)"
+      "Edit(~/Documents/Workspace/sd-edition-infra/**)",
+      "Bash(gh api:*)",
+      "Bash(gh auth token:*)",
+      "Bash(gh auth logout:*)",
+      "Bash(gh secret:*)",
+      "Bash(gh variable:*)",
+      "Bash(gh repo delete:*)",
+      "Bash(gh repo edit:*)"
     ]
   },
   "enabledPlugins": {
